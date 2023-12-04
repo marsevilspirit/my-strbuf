@@ -614,7 +614,7 @@ TEST(StrBufTest2C, remove) {
 
 TEST(StrBufTest2D, read1) {
     strbuf sb;
-    int TestFd = open("StrbufCheck/FileTest/TestforFile_1.txt", O_RDWR, S_IRWXU);//我改了路径
+    int TestFd = open("strbuf/FileTest/TestforFile_1.txt", O_RDWR, S_IRWXU);//我改了路径
     ASSERT_GT(TestFd, 0);
     strbuf_init(&sb, 0x10);
     strbuf_addstr(&sb, "123");
@@ -632,7 +632,7 @@ TEST(StrBufTest2D, read2) {
     strbuf sb;
     strbuf_init(&sb, 0x10);
     strbuf_addstr(&sb, "123");
-    int fd = open("StrbufCheck/FileTest/TestforFile_5.txt", O_RDWR, S_IRWXU);//我改了路径
+    int fd = open("strbuf/FileTest/TestforFile_5.txt", O_RDWR, S_IRWXU);//我改了路径
     ASSERT_GT(fd, 0);
     size_t oldAlloc = sb.alloc;
     strbuf_read(&sb, fd, 0x100);
@@ -650,7 +650,7 @@ TEST(StrBufTest2D, read2) {
 
 TEST(StrBufTest2D, getline) {
     strbuf sb;
-    FILE *fp = fopen("StrbufCheck/FileTest/TestforFile_3.txt", "r");//我改了路径
+    FILE *fp = fopen("strbuf/FileTest/TestforFile_3.txt", "r");//我改了路径
     strbuf_init(&sb, 0x10);
     strbuf_getline(&sb, fp);
     ASSERT_STREQ(sb.buf, "123123123123");
